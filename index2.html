@@ -1,0 +1,40 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <title>Using Directives</title>
+  </head>
+  <body ng-init="name='Handsome McDougal'">
+    <div ng-hide="isHidden">
+      Name: <input type="text" ng-model="name" /> {{ name }}
+      <span ng-bind="name"></span>
+    </div>
+      Hide: <input type="checkbox" ng-model="isHidden" />
+    <br />
+    <button ng-click="name='Turd Ferguson'">Change Name</button>
+
+    <div ng-init="names=['Brian', 'Kristen', 'J', 'Beth', 'Vivian']">
+      <h3>Iterating through an array with ng-repeat</h3>
+      <ul>
+        <li ng-repeat="name in names">
+          {{ name }}
+        </li>
+      </ul>
+    </div>
+    <div ng-init="people=[{name:'Brian', city:'North Smithfield'}, {name:'Kristen', city:'Gardner'}, {name:'J', city:'North Smithfield'}, {name:'Beth', city:'Providence'}]">
+      <h3>Iterating through objects with ng-repeat</h3>
+      Filter: <input type="text" ng-model="customerFilter.name" />
+      <table>
+        <tr>
+          <th ng-click="sortBy='name';reverse=!reverse">Name</th>
+          <th ng-click="sortBy='city';reverse=!reverse">Birthplace</th>
+        </tr>
+        <tr ng-repeat="person in people | filter:customerFilter | orderBy:sortBy:reverse | limitTo:'3'">
+          <td>{{ person.name }}</td>
+          <td>{{ person.city }}</td>
+        </tr>
+      </table>
+    </div>
+
+    <script src="angular.js"></script>
+  </body>
+</html>
