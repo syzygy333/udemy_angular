@@ -1,9 +1,9 @@
 <!doctype html>
-<html ng-app>
+<html ng-app="customersApp">
   <head>
     <title>Using Directives</title>
   </head>
-  <body>
+  <body ng-controller="CustomersController">
     <h2>Customers</h2>
       Filter: <input type="text" ng-model="customerFilter.name" />
       <br /><br />
@@ -25,6 +25,7 @@
       <span>Total Customers: {{ customers.length }}</span>
 
     <script src="angular.js"></script>
+    <script src="app/app.js"></script>
     <scipt src="app/controllers/customersController.js"></scipt>
   </body>
 </html>
