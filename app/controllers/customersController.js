@@ -1,45 +1,14 @@
-// option 1
-// app.controller('CustomersController', function($scope) {
-//   $scope.sortBy = 'name';
-//   $scope.reverse = false;
-//
-//   $scope.customers = [
-//     {name:'Brian', city:'North Smithfield'},
-//     {name:'Kristen', city:'Gardner'},
-//     {name:'J', city:'North Smithfield'},
-//     {name:'Beth', city:'Providence'}
-//   ];
-//   $scope.doSort = function(propName) {
-//     $scope.sortBy = propName;
-//     $scope.reverse = !$scope.reverse;
-//   };
-// });
-
-// // option 2
-// (function() {
-//   angular.module('customersApp')
-//     .controller('CustomersController', function($scope) {
-//       $scope.sortBy = 'name';
-//       $scope.reverse = false;
-//
-//       $scope.customers = [
-//         {name:'Brian', city:'North Smithfield'},
-//         {name:'Kristen', city:'Gardner'},
-//         {name:'J', city:'North Smithfield'},
-//         {name:'Beth', city:'Providence'}
-//       ];
-//       $scope.doSort = function(propName) {
-//         $scope.sortBy = propName;
-//         $scope.reverse = !$scope.reverse;
-//       };
-//   });
-// }());
-//
-// // option 3
 (function() {
-  var CustomersController = function($scope) {
+  var CustomersController = function($scope, customersFactory) {
     $scope.sortBy = 'name';
     $scope.reverse = false;
+    $scope.customers = [];
+
+    function init() {
+      $scope.customers = customersFactory.getCustomers();
+    }
+
+    init();
 
     $scope.doSort = function(propName) {
       $scope.sortBy = propName;
@@ -47,7 +16,7 @@
     };
   };
 
-  CustomersController.$inject = ['$scope'];
+  CustomersController.$inject = ['$scope', 'customersFactory'];
 
   angular.module('customersApp')
     .controller('CustomersController', CustomersController);
