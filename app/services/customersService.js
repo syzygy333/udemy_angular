@@ -18,7 +18,7 @@
         id: 2,
         joined: '1986-06-07',
         name:'Kristen',
-        city:'Gardner'
+        city:'Gardner',
         orders: [
           {
             id: 2,
@@ -36,7 +36,7 @@
         id: 3,
         joined: 1975-09-17,
         name:'J',
-        city:'North Smithfield'
+        city:'North Smithfield',
         orders: [
           {
             id: 4,
