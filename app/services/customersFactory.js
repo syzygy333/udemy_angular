@@ -6,12 +6,12 @@
       return $http.get('/customers');
     };
     factory.getCustomer = function(customerId) {
-      return $http.get('/customers' + customerId);
+      return $http.get('/customers/' + customerId);
     };
     return factory;
   };
 
-  customersFactory.$inject = ['http'];
+  customersFactory.$inject = ['$http'];
 
-  angular.module('customersApp').factory('customersFactory', customerFactory);
+  angular.module('customersApp').factory('customersFactory', customersFactory);
 }());

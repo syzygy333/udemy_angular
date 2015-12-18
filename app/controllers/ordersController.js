@@ -1,5 +1,5 @@
 (function() {
-  var CustomersController = function($scope, $routeParams, customersFactory) {
+  var OrdersController = function($scope, $routeParams, customersFactory) {
     var customerId = $routeParams.customerId;
     $scope.customer = null;
 
